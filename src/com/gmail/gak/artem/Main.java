@@ -43,7 +43,7 @@ public class Main {
 			}
 			d.setWordTranslate(word, value);
 		}
-		
+
 		sc.close();
 	}
 

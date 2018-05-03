@@ -19,6 +19,10 @@ public class Translator {
 	}
 
 	public String translate(String str) {
+		if(str == null) {
+			throw new IllegalArgumentException();
+		}
+		
 		str = prepareString(str);
 
 		StringBuilder sb = new StringBuilder();

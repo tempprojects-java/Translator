@@ -17,6 +17,10 @@ public class Dictionary {
 	}
 
 	public void loadFromFile(String path) {
+		if (path == null) {
+			throw new IllegalArgumentException();
+		}
+
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			String line;
 
@@ -30,7 +34,7 @@ public class Dictionary {
 	}
 
 	public String getWordTranslate(String word) {
-		if (data.size() == 0) {
+		if (data.size() == 0 || word == null) {
 			return null;
 		}
 
@@ -45,6 +49,10 @@ public class Dictionary {
 	}
 
 	public void setWordTranslate(String word, String value) {
+		if (word == null || value == null) {
+			throw new IllegalArgumentException();
+		}
+
 		data.put(word, value);
 	}
 
@@ -53,6 +61,10 @@ public class Dictionary {
 	}
 
 	public void saveToFile(String path) {
+		if (path == null) {
+			throw new IllegalArgumentException();
+		}
+
 		try (FileWriter f = new FileWriter(path, false)) {
 
 			Set<String> keys = data.keySet();
